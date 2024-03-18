@@ -1,0 +1,39 @@
+﻿<Window x:Class="FrontGauge.GaugeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FrontGauge"
+        mc:Ignorable="d"
+        
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        
+        Title="Window1" Height="90" Width="1920">
+    <Grid>
+        <Image x:Name="Meter" Width="970" Height="30" Source="/gauge_meter.png" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/meter.png" >
+                    <ImageBrush.Transform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="MeterMask" X="-970"/>
+                        </TransformGroup>
+                    </ImageBrush.Transform>
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform X="0"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image x:Name="Frame" Width="1008" Height="68" Source="/frame.png" Margin="0,8,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image x:Name="Close" HorizontalAlignment="Center" Height="38" Width="38" Margin="1050,8,0,0" VerticalAlignment="Center" Source="/Close.png" MouseDown="Close_MouseDown" Cursor="Hand" />
+        <Image x:Name="Minimalize"  HorizontalAlignment="Center" Height="38" Width="38" Margin="1130,8,0,0" VerticalAlignment="Center" Source="/Minimize.png" MouseDown="Minimalize_MouseDown" Cursor="Hand" />
+    </Grid>
+</Window>
